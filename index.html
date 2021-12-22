@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>HO! HO! HO!</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/image-puzzle.css" rel="stylesheet" />
+    <link rel = "icon" href = "https://www.kindpng.com/picc/m/6-68970_santa-claus-png-santa-claus-free-png-transparent.png" type = "image/x-icon">
+    <script src="js/image-puzzle.js"></script>
+</head>
+
+<body>
+    <div id="collage">
+        <h2><b>Solve the Puzzle and I will reveal myself</b></h2>
+        <hr />
+        <div id="playPanel" style="padding:5px;display:none;">
+            
+            <hr />
+            <div style="display:inline-block; margin:auto; width:95%; vertical-align:top;">
+                <ul id="sortable" class="sortable"></ul>
+                <div id="actualImageBox">
+                    <div id="stepBox">
+                        
+                        
+                    </div>
+
+                    <h2><b>Ho ! Ho ! Ho ! <br> I hope you liked your bag my child , it's time to find your SANTA !  </b></h2><br><br> 
+                    <br><br><br><br><br><br><br>
+                    <h2><b>Here's a little hint - <br>"One plus one is not two"</b></h2>
+                    
+                   
+                    
+                    
+                    <p id="levelPanel">
+                        <input type="radio" name="level" id="easy" checked="checked" value="4" onchange="imagePuzzle.startGame(images, this.value);"/> <label for="easy" style="display: none;">Easy</label>
+                                             
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+        <div id="gameOver" style="display:none;">
+            <div style="background-color: #fc9e9e; padding: 5px 10px 20px 10px; text-align: center; ">
+                <h2 style="text-align:center">Game Over!!</h2>
+                Congratulations!! <br /> You have completed this picture.
+                <br /> Now you know what to do ! 
+                <br /> 
+                <div>
+                    <button type="button" onclick="window.location.reload(true);">Play Again</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var images = [
+                { src: 'images/bc.png', title: 'London Bridge' },
+                
+            ];
+
+            window.onload = function () {
+                var gridSize = document.querySelector('#levelPanel input[type="radio"]:checked').getAttribute('value');
+                imagePuzzle.startGame(images, gridSize);
+            };
+            function restart() {
+                var gridSize = document.querySelector('#levelPanel input[type="radio"]:checked').getAttribute('value');
+                imagePuzzle.startGame(images, gridSize);
+            }
+            function rules() {
+                alert('Re arrange the image parts in a way that it correctly forms the picture. \nThe no. of steps taken will be counted.');
+            }
+            function about() {
+                alert('Developed by Anurag Gandhi. \nHe can be contacted at: soft.gandhi@gmail.com');
+            }
+        </script>
+    </div>
+</body>
+</html>
